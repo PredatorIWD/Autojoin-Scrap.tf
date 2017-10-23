@@ -1,0 +1,35 @@
+{
+	"manifest_version": 2,
+
+	"name": "Autojoin Scrap.tf",
+	"description": "Automatically enters raffles from Scrap.tf and site enhancements",
+	"version": "1.3",
+	"author": "PredatorIWD",
+	"converted_from_user_script": true,
+
+	"icons": {
+		"16": "img/icon.png",
+		"48": "img/icon.png",
+		"128": "img/icon.png"
+	},
+	"browser_action": {
+		"default_icon": "img/icon.png",
+		"default_title": "Autojoin Scrap.tf"
+	},
+	"content_scripts": [{
+		"matches": ["https://scrap.tf/*", "*://steamcommunity.com/*"],
+		"js": ["lib/jquery-3.1.1.min.js", "autojoin.user.js"]
+	}],
+	"background": {
+		"persistent": true,
+		"scripts": ["lib/jquery-3.1.1.min.js", "background.js"]
+	},
+	"permissions": [
+		"tabs",
+		"storage",
+		"notifications"
+	],
+	"externally_connectable": {
+		"matches": ["https://scrap.tf/*"]
+	}
+}
